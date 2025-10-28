@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : Character
+public class Player : Character , Weapon
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
