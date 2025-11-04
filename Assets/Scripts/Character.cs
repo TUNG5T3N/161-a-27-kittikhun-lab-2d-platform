@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
-public class Character : MonoBehaviour , HealthBarsUI
+public class Character : MonoBehaviour
 {
     //Attribute
     private float health;
@@ -13,15 +13,6 @@ public class Character : MonoBehaviour , HealthBarsUI
 
     protected Animator anim;
     protected Rigidbody2D rb;
-
-    [field: SerializeField] RectTransform rectTransform { get; set; }
-    [field: SerializeField] GameObject healthBarsFill { get; set; }
-    [field: SerializeField] GameObject healthBarsBG { get; set; }
-    [field: SerializeField] GameObject characterObject { get; set; }
-    RectTransform HealthBarsUI.rectTransform { get => rectTransform; set => rectTransform = value; }
-    GameObject HealthBarsUI.healthBarsFill { get => healthBarsFill; set => healthBarsFill = value; }
-    GameObject HealthBarsUI.healthBarsBG { get => healthBarsBG; set => healthBarsBG = value; }
-    GameObject HealthBarsUI.characterObject { get => characterObject; set => characterObject = value; }
 
     public void Initialized(int startHealth)
     {
@@ -57,39 +48,12 @@ public class Character : MonoBehaviour , HealthBarsUI
     void Start()
     {
         anim = GetComponent<Animator>();
-
-
-        healthBarsFill = transform.gameObject;
-        healthBarsBG = transform.parent.gameObject;
-        characterObject = healthBarsBG.transform.parent.parent.gameObject;
-
-        rectTransform = healthBarsFill.GetComponent<RectTransform>();
-
-        
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        updateHealthBars();
+        
     }
 
-
-    void updateHealthBars()
-    {
-        float percentHP = this.Health / this.maxHealth;
-        Debug.Log(percentHP);
-        Debug.Log(this.Health);
-        Debug.Log(this.maxHealth);
-        rectTransform.localScale = new Vector2(percentHP, rectTransform.localScale.y);
-
-        healthBarsBG.transform.localScale = new Vector2(characterObject.transform.localScale.x, healthBarsBG.transform.localScale.y);
-    }
-
-    void HealthBarsUI.updateHealthBars()
-    {
-        updateHealthBars();
-    }
 }

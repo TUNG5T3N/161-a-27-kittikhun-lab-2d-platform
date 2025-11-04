@@ -49,8 +49,11 @@ public class Player : Character , IShootable
         {
             var bullet = Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
             Banana banana = bullet.GetComponent<Banana>();
+
+            Debug.Log(banana);
             if (banana != null)
                 banana.InitWeapon(20, this);
+
 
             WaitTime = 0.0f; //reset waittime
         }

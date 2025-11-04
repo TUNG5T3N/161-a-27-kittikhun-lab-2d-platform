@@ -4,24 +4,18 @@ using UnityEngine.UI;
 
 public class HealthBars : MonoBehaviour
 {
-    GameObject healthBarsFill;
-    GameObject healthBarsBG;
-    GameObject characterObject;
+    [field: SerializeField] GameObject healthBarsFill;
+    [field: SerializeField] GameObject healthBarsBG;
+    [field: SerializeField] GameObject characterObject;
 
-    RectTransform rectTransform;
+    [field: SerializeField] RectTransform rectTransform;
 
-    Character character;
+    [field: SerializeField] Character character;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        healthBarsFill = transform.gameObject;
-        healthBarsBG = transform.parent.gameObject;
-        characterObject = healthBarsBG.transform.parent.parent.gameObject;
-
-        rectTransform = healthBarsFill.GetComponent<RectTransform>();
-
-        character = characterObject.GetComponent<Character>();
+       
     }
 
     // Update is called once per frame
