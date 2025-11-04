@@ -3,14 +3,16 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     //Attribute
-    private int health;
-    public int Health { get => health; set => health = (value < 0) ? 0 : value; }
+    private float health;
+    public float Health { get => health; set => health = (value < 0) ? 0 : value; }
+    public float maxHealth;
 
     protected Animator anim;
     protected Rigidbody2D rb;
 
     public void Initialized(int startHealth)
     {
+        maxHealth = startHealth;
         Health = startHealth;
         Debug.Log($"{this.name} initial Health: {this.Health}");
 
